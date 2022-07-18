@@ -9,6 +9,7 @@ for (x, y, w, h) in eyes:
     eye = img[y:y + h, x:x + w]
     eye_list.append(eye)
 
+
 img_blur_1 = cv2.GaussianBlur(eye_list[0],
                               (5, 5),
                               0)
@@ -17,10 +18,10 @@ img_blur_2 = cv2.GaussianBlur(eye_list[1],
                               0)
 edge_1 = cv2.Canny(image=img_blur_1,
                    threshold1=100,
-                   threshold2=250)
+                   threshold2=150)
 edge_2 = cv2.Canny(image=img_blur_2,
                    threshold1=100,
-                   threshold2=250)
+                   threshold2=150)
 
 cv2.imshow("edge_1", edge_1)
 cv2.imshow("edge_2", edge_2)
